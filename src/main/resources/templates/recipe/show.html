@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Show Recipe</title>
@@ -87,6 +87,7 @@
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h1 class="panel-title" >Ingredients</h1>
+            <a href="#" class="btn btn-default" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">View</a>
           </div>
           <div class="panel-body">
             <div class="row">
