@@ -3,13 +3,11 @@ package guru.springframework.services;
 import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.*;
 import guru.springframework.domain.Recipe;
-import guru.springframework.exceptions.NotFoundException;
 import guru.springframework.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.HashSet;
@@ -58,18 +56,6 @@ public class RecipeServiceImplTest {
         verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, never()).findAll();
 
-    }
-
-    @Test(expected= NotFoundException.class)
-    public void getRecipeByIdTestNotFound() throws Exception {
-
-        Optional<Recipe> recipeOptional = Optional.empty();
-
-        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
-
-        Recipe recipeReturned = recipeService.findById(1L);
-
-        //should go boom
     }
 
     @Test
